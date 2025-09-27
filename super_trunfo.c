@@ -24,25 +24,25 @@ void main()
   printf ("CARTA 1");
   printf ("\n");
   printf ("Estado: ");
-  scanf (%d,&UF1[]);
+  scanf ("%s",&UF1[]);
   printf ("\n");
   printf ("Código da Carta: ");
-  scanf (%d,&CODIGO_CARTA1[]);
+  scanf ("%s",&CODIGO_CARTA1[]);
   printf ("\n");  
   printf ("Nome da Cidade: ");
-  scanf (%d,&CIDADE1[]);
+  scanf ("%s",&CIDADE1[]);
   printf ("\n");
   printf ("Número de Habitantes: ");
-  scanf (%d,&HABITANTES1);
+  scanf ("%d",&HABITANTES1);
   printf ("\n");
   printf ("Área da Cidade: ");
-  scanf (%f,&AREA1);
+  scanf ("%.2f",&AREA1);
   printf ("\n");
   printf ("PIB: ");
-  scanf (%f,&PIB1);
+  scanf ("%.2f",&PIB1);
   printf ("\n");
   printf ("Número de Pontos Turísticos: ");
-  scanf (%d,&PT_TUR1);
+  scanf ("%d",&PT_TUR1);
   printf ("\n");
 
 // INSERINDO OS DADOS DA CARTA 2
@@ -51,48 +51,39 @@ void main()
   printf ("CARTA 2");
   printf ("\n");
   printf ("Estado: ");
-  scanf (%d,&UF2[]);
+  scanf ("%s",&UF2[]);
   printf ("\n");
   printf ("Código da Carta: ");
-  scanf (%d,&CODIGO_CARTA2[]);
+  scanf ("%s",&CODIGO_CARTA2[]);
   printf ("\n");  
   printf ("Nome da Cidade: ");
-  scanf (%d,&CIDADE2[]);
+  scanf ("%s",&CIDADE2[]);
   printf ("\n");
   printf ("Número de Habitantes: ");
-  scanf (%d,&HABITANTES2);
+  scanf ("%d",&HABITANTES2);
   printf ("\n");
   printf ("Área da Cidade: ");
-  scanf (%f,&AREA2);
+  scanf ("%.2f",&AREA2);
   printf ("\n");
   printf ("PIB: ");
-  scanf (%f,&PIB2);
+  scanf ("%.2f",&PIB2);
   printf ("\n");
   printf ("Número de Pontos Turísticos: ");
-  scanf (%d,&PT_TUR2);
+  scanf ("%d",&PT_TUR2);
   printf ("\n");
 
 // IMPRIMINDO AS DUAS CARTAS
   printf (" ____________________________________________________________________________________________________ \n");
-  printf (f"| CARTA ",&CODIGO_CARTA1[],"                                        |  | CARTA ",&CODIGO_CARTA2[],"                                        | \n");
-  printf (f"|  Estado: ",&UF1[],"                          | | Estado: ",&UF2[],"                          | \n");
-  printf (f"| Município: ",&CIDADE1[],"                  |  | Município: ",&CIDADE2[],"                  | \n");
-  printf (f"População: ",&HABITANTES1,"                 |  | População: ",&HABITANTES2,"            | \n");
-  printf (f"Área do Município: ",&AREA1,"               |  | Área do Município: ",&AREA2,"          | \n");
-  printf (f"Produto Interno Bruto: ",&PIB1,"            |  | Produto Interno Bruto: ",&PIB2,"       | \n");
-  printf (f"Pontos Turísticos: ",&PT_TUR1,"              |  | Pontos Turísticos: ",&PT_TUR2,"        | \n");
+  printf ("| CARTA %s",&CODIGO_CARTA1[],"                                        |  | CARTA %s",&CODIGO_CARTA2[],"                                        | \n");
+  printf ("|  Estado: %s",&UF1[],"                          | | Estado: %s",&UF2[],"                          | \n");
+  printf ("| Município: %s",&CIDADE1[],"                  |  | Município: %s",&CIDADE2[],"                  | \n");
+  printf ("População: %d",&HABITANTES1,"                 |  | População: %d",&HABITANTES2,"            | \n");
+  printf ("Área do Município: %.2f",&AREA1,"               |  | Área do Município: %.2f",&AREA2,"          | \n");
+  printf ("Produto Interno Bruto: %.2f",&PIB1,"            |  | Produto Interno Bruto: %.2f",&PIB2,"       | \n");
+  printf ("Pontos Turísticos: %d",&PT_TUR1,"              |  | Pontos Turísticos: %d",&PT_TUR2,"        | \n");
   printf ("|___________________________________________________________________________________________________| \n");
 }
 
   
       
-  
-  
-  
 
-  
-  
-  
-  
-  
-  printf("Apenas inicializando...");  }
