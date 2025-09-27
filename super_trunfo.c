@@ -3,20 +3,20 @@
 void main()
 {   
 // DECLARANDO AS VARIÁVEIS
-  char UF1[2];
-  char CIDADE1[20];
-  char CODIGO_CARTA1[3];
-  int HABITANTES1;
-  float AREA1;
-  float PIB1;
-  int PT_TUR1;
-  char UF2[2];
-  char CIDADE2[20];
-  char CODIGO_CARTA2[3];
-  int HABITANTES2;
-  float AREA2;
-  float PIB2;
-  int PT_TUR2;
+  char UF1[2]="  ";
+  char CIDADE1[20] = "                    ";
+  char CODIGO_CARTA1[3] = "   ";
+  int HABITANTES1 = 0;
+  float AREA1 = 0.0;
+  float PIB1 = 0.0;
+  int PT_TUR1 = 0;
+  char UF2[2] = "  ";
+  char CIDADE2[20] = "                    ";
+  char CODIGO_CARTA2[3] = "   ";
+  int HABITANTES2 = 0;
+  float AREA2 = 0.0;
+  float PIB2 = 0.0;
+  int PT_TUR2 = 0;
   
 // INSERINDO OS DADOS DA CARTA 1
   printf ("Forneça as Informações das Cidades nas Cartas do SUPER TRUNFO \n");
@@ -24,26 +24,19 @@ void main()
   printf ("CARTA 1");
   printf ("\n");
   printf ("Estado: ");
-  scanf ("%s",&UF1);
-  printf ("\n");
+  scanf ("%c\n",&UF1);
   printf ("Código da Carta: ");
-  scanf ("%s",&CODIGO_CARTA1);
-  printf ("\n");  
+  scanf ("%c\n",&CODIGO_CARTA1);
   printf ("Nome da Cidade: ");
-  scanf ("%s",&CIDADE1);
-  printf ("\n");
+  scanf ("%s\n",&CIDADE1);
   printf ("Número de Habitantes: ");
   scanf ("%d",&HABITANTES1);
-  printf ("\n");
   printf ("Área da Cidade: ");
-  scanf ("%.2f",&AREA1);
-  printf ("\n");
+  scanf ("%f",&AREA1);
   printf ("PIB: ");
-  scanf ("%.2f",&PIB1);
-  printf ("\n");
+  scanf ("%f",&PIB1);
   printf ("Número de Pontos Turísticos: ");
   scanf ("%d",&PT_TUR1);
-  printf ("\n");
 
 // INSERINDO OS DADOS DA CARTA 2
   printf ("Forneça as Informações das Cidades nas Cartas do SUPER TRUNFO \n");
@@ -51,26 +44,19 @@ void main()
   printf ("CARTA 2");
   printf ("\n");
   printf ("Estado: ");
-  scanf ("%s",&UF2);
-  printf ("\n");
+  scanf ("%c\n",&UF2);
   printf ("Código da Carta: ");
-  scanf ("%s",&CODIGO_CARTA2);
-  printf ("\n");  
+  scanf ("%c\n",&CODIGO_CARTA2);
   printf ("Nome da Cidade: ");
-  scanf ("%s",&CIDADE2);
-  printf ("\n");
+  scanf ("%s\n",&CIDADE2);
   printf ("Número de Habitantes: ");
-  scanf ("%d",&HABITANTES2);
-  printf ("\n");
+  scanf ("%d\n",&HABITANTES2);
   printf ("Área da Cidade: ");
-  scanf ("%.2f",&AREA2);
-  printf ("\n");
+  scanf ("%f\n",&AREA2);
   printf ("PIB: ");
-  scanf ("%.2f",&PIB2);
-  printf ("\n");
+  scanf ("%f\n",&PIB2);
   printf ("Número de Pontos Turísticos: ");
-  scanf ("%d",&PT_TUR2);
-  printf ("\n");
+  scanf ("%d\n",&PT_TUR2);
 
 // IMPRIMINDO AS DUAS CARTAS
   printf (" ____________________________________________________________________________________________________ \n");
