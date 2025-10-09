@@ -34,7 +34,6 @@ void main()
   int OPCAO2=0;
   
 // INSERINDO OS DADOS DA CARTA 1
-  clrscr();
   printf ("Forneça as Informações das Cidades nas Cartas do SUPER TRUNFO \n");
   printf ("\n");
   printf ("CARTA 1");
@@ -80,8 +79,7 @@ void main()
   DENSIDADE_POP2=HABITANTES2/AREA2;
 
 // CRIA O MENU INTERATIVO PARA ESCOLHA PELO USUÁRIO DOS ATRIBUTOS PARA COMPARAÇÃO
-  menu:
-    clrscr();
+  menu:    
     printf ("\n\n ESCOLHA DOS ATRIBUTOS DAS CARTAS PARA DETERMINAÇÃO DA CARTA VENCEDORA \n\n");
     printf ("1 - População \n");
     printf ("2 - Área \n");
@@ -93,6 +91,9 @@ void main()
     scanf ("%d",&OPCAO1);
     printf ("\n Digite o Segundo Atributo: ");
     scanf ("%d",&OPCAO2);
+    if (OPCAO1 == OPCAO2)
+    { printf ("Atributo já Selecionado na Opção Anterior. Repita a Operação !!");
+      goto menu;}
     
 //COMPARANDO AS DUAS CARTAS
   SUPER_POWER1=0.0;
@@ -101,134 +102,134 @@ void main()
   {
     case 1:
     { if (HABITANTES1>HABITANTES2)
-      { printf ("Carta 1 tem mais habitantes !!! \n");
+      { printf ("\n Carta 1 tem mais habitantes !!!");
         SUPER_POWER1 += HABITANTES1; }
       else 
-      { printf ("Carta 2 tem mais habitantes !!! \n");
+      { printf ("\n Carta 2 tem mais habitantes !!!");
         SUPER_POWER2 += HABITANTES2; }   
-      printf ("População de %s: %d habitantes. \n",CIDADE1,HABITANTES1);
-      printf ("População de %s: %d habitantes. \n",CIDADE2,HABITANTES2);        
+      printf ("\n População de %s: %d habitantes.",CIDADE1,HABITANTES1);
+      printf ("\n População de %s: %d habitantes.",CIDADE2,HABITANTES2);        
       break; }
     case 2:
     { if (AREA1>AREA2)
-      { printf ("Carta 1 tem maior área !!! \n");
+      { printf ("\n Carta 1 tem maior área !!!");
         SUPER_POWER1 += AREA1; }
       else  
-      { printf ("Carta 2 tem maior área !!! \n");
+      { printf ("\n Carta 2 tem maior área !!!");
         SUPER_POWER2 += AREA2; }
-      printf ("Área de %s: %.2f km². \n",CIDADE1,AREA1);
-      printf ("Área de %s: %.2f km². \n",CIDADE2,AREA2);   
+      printf ("\n Área de %s: %.2f km².",CIDADE1,AREA1);
+      printf ("\n Área de %s: %.2f km².",CIDADE2,AREA2);   
       break; }
     case 3:
     { if (PIB1>PIB2)
-      { printf ("Carta 1 tem maior PIB !!! \n");
+      { printf ("\n Carta 1 tem maior PIB !!!");
         SUPER_POWER1 += PIB1; }
       else  
-      { printf ("Carta 2 tem maior PIB !!! \n");
+      { printf ("\n Carta 2 tem maior PIB !!!");
         SUPER_POWER2 += PIB2; }
-      printf ("PIB de %s: R$ %.2f. \n",CIDADE1,PIB1);
-      printf ("PIB de %s: R$ %.2f. \n",CIDADE2,PIB2);     
+      printf ("\n PIB de %s: R$ %.2f.",CIDADE1,PIB1);
+      printf ("\n PIB de %s: R$ %.2f.",CIDADE2,PIB2);     
       break; }
     case 4:
     { if (PT_TUR1>PT_TUR2)
-      { printf ("Carta 1 tem mais pontos turísticos !!! \n");
+      { printf ("\n Carta 1 tem mais pontos turísticos !!!");
         SUPER_POWER1 += PT_TUR1; }
       else  
-      { printf ("Carta 2 tem mais pontos turísticos !!! \n");
+      { printf ("\n Carta 2 tem mais pontos turísticos !!!");
         SUPER_POWER2 += PT_TUR2; }
-      printf ("O Município de %s tem %d pontos turísticos. \n",CIDADE1,PT_TUR1);
-      printf ("O Município de %s tem %d pontos turísticos. \n",CIDADE2,PT_TUR2);   
+      printf ("\n O Município de %s tem %d pontos turísticos.",CIDADE1,PT_TUR1);
+      printf ("\n O Município de %s tem %d pontos turísticos.",CIDADE2,PT_TUR2);   
       break; }
     case 5:
     { if (PIB_PER_CAPITA1>PIB_PER_CAPITA2)
-      { printf ("Carta 1 tem maior PIB PER CAPITA !!! \n");
+      { printf ("\n Carta 1 tem maior PIB PER CAPITA !!!");
         SUPER_POWER1 += PIB_PER_CAPITA1; }
       else  
-      { printf ("Carta 2 tem maior PIB PER CAPITA !!! \n");
+      { printf ("\n Carta 2 tem maior PIB PER CAPITA !!!");
         SUPER_POWER2 += PIB_PER_CAPITA2; }
-      printf ("PIB PER CAPITA de %s: R$ %.2f. \n",CIDADE1,PIB_PER_CAPITA1);
-      printf ("PIB PER CAPITA de %s: R$ %.2f. \n",CIDADE2,PIB_PER_CAPITA2);   
+      printf ("\n PIB PER CAPITA de %s: R$ %.2f.",CIDADE1,PIB_PER_CAPITA1);
+      printf ("\n PIB PER CAPITA de %s: R$ %.2f.",CIDADE2,PIB_PER_CAPITA2);   
       break; }
     case 6:
     { if (DENSIDADE_POP1>DENSIDADE_POP2)
-      { printf ("Carta 1 tem maior densidade populacional !!! \n");
+      { printf ("\n Carta 1 tem maior densidade populacional !!!");
         SUPER_POWER1 += (1/DENSIDADE_POP1); }
       else  
-      { printf ("Carta 2 tem maior densidade populacional !!! \n"); 
+      { printf ("\n Carta 2 tem maior densidade populacional !!!"); 
         SUPER_POWER2 += (1/DENSIDADE_POP2); }
-      printf ("Densidade Populacional de %s: %.2f habitantes/km².",CIDADE1,DENSIDADE_POP1);
-      printf ("Densidade Populacional de %s: %.2f habitantes/km².",CIDADE2,DENSIDADE_POP2);   
+      printf ("\n Densidade Populacional de %s: %.2f habitantes/km².",CIDADE1,DENSIDADE_POP1);
+      printf ("\n Densidade Populacional de %s: %.2f habitantes/km².",CIDADE2,DENSIDADE_POP2);   
       break; }
     default:
-    { printf ("Opção 1 Inválida. Repita a Operação !!");
+    { printf ("\n Opção 1 Inválida. Repita a Operação !!");
       goto menu; } 
-  
+  }
   switch (OPCAO2)
   {
     case 1:
     { if (HABITANTES1>HABITANTES2)
-      { printf ("Carta 1 tem mais habitantes !!! \n");
+      { printf ("\n Carta 1 tem mais habitantes !!!");
         SUPER_POWER1 += HABITANTES1; }
       else 
-      { printf ("Carta 2 tem mais habitantes !!! \n");
+      { printf ("\n Carta 2 tem mais habitantes !!!");
         SUPER_POWER2 += HABITANTES2; }   
-      printf ("População de %s: %d habitantes. \n",CIDADE1,HABITANTES1);
-      printf ("População de %s: %d habitantes. \n",CIDADE2,HABITANTES2);        
+      printf ("\n População de %s: %d habitantes.",CIDADE1,HABITANTES1);
+      printf ("\n População de %s: %d habitantes.",CIDADE2,HABITANTES2);        
       break; }
     case 2:
     { if (AREA1>AREA2)
-      { printf ("Carta 1 tem maior área !!! \n");
+      { printf ("\n Carta 1 tem maior área !!!");
         SUPER_POWER1 += AREA1; }
       else  
-      { printf ("Carta 2 tem maior área !!! \n");
+      { printf ("\n Carta 2 tem maior área !!!");
         SUPER_POWER2 += AREA2; }
-      printf ("Área de %s: %.2f km². \n",CIDADE1,AREA1);
-      printf ("Área de %s: %.2f km². \n",CIDADE2,AREA2);   
+      printf ("\n Área de %s: %.2f km².",CIDADE1,AREA1);
+      printf ("\n Área de %s: %.2f km².",CIDADE2,AREA2);   
       break; }
     case 3:
     { if (PIB1>PIB2)
-      { printf ("Carta 1 tem maior PIB !!! \n");
+      { printf ("\n Carta 1 tem maior PIB !!!");
         SUPER_POWER1 += PIB1; }
       else  
-      { printf ("Carta 2 tem maior PIB !!! \n");
+      { printf ("\n Carta 2 tem maior PIB !!!");
         SUPER_POWER2 += PIB2; }
-      printf ("PIB de %s: R$ %.2f. \n",CIDADE1,PIB1);
-      printf ("PIB de %s: R$ %.2f. \n",CIDADE2,PIB2);     
+      printf ("\n PIB de %s: R$ %.2f.",CIDADE1,PIB1);
+      printf ("\n PIB de %s: R$ %.2f.",CIDADE2,PIB2);     
       break; }
     case 4:
     { if (PT_TUR1>PT_TUR2)
-      { printf ("Carta 1 tem mais pontos turísticos !!! \n");
+      { printf ("\n Carta 1 tem mais pontos turísticos !!!");
         SUPER_POWER1 += PT_TUR1; }
       else  
-      { printf ("Carta 2 tem mais pontos turísticos !!! \n");
+      { printf ("\n Carta 2 tem mais pontos turísticos !!!");
         SUPER_POWER2 += PT_TUR2; }
-      printf ("O Município de %s tem %d pontos turísticos. \n",CIDADE1,PT_TUR1);
-      printf ("O Município de %s tem %d pontos turísticos. \n",CIDADE2,PT_TUR2);   
+      printf ("\n O Município de %s tem %d pontos turísticos.",CIDADE1,PT_TUR1);
+      printf ("\n O Município de %s tem %d pontos turísticos.",CIDADE2,PT_TUR2);   
       break; }
     case 5:
     { if (PIB_PER_CAPITA1>PIB_PER_CAPITA2)
-      { printf ("Carta 1 tem maior PIB PER CAPITA !!! \n");
+      { printf ("\n Carta 1 tem maior PIB PER CAPITA !!!");
         SUPER_POWER1 += PIB_PER_CAPITA1; }
       else  
-      { printf ("Carta 2 tem maior PIB PER CAPITA !!! \n");
+      { printf ("\n Carta 2 tem maior PIB PER CAPITA !!!");
         SUPER_POWER2 += PIB_PER_CAPITA2; }
-      printf ("PIB PER CAPITA de %s: R$ %.2f. \n",CIDADE1,PIB_PER_CAPITA1);
-      printf ("PIB PER CAPITA de %s: R$ %.2f. \n",CIDADE2,PIB_PER_CAPITA2);   
+      printf ("\n PIB PER CAPITA de %s: R$ %.2f. \n",CIDADE1,PIB_PER_CAPITA1);
+      printf ("\n PIB PER CAPITA de %s: R$ %.2f. \n",CIDADE2,PIB_PER_CAPITA2);   
       break; }
     case 6:
     { if (DENSIDADE_POP1>DENSIDADE_POP2)
-      { printf ("Carta 1 tem maior densidade populacional !!! \n");
+      { printf ("\n Carta 1 tem maior densidade populacional !!!");
         SUPER_POWER1 += (1/DENSIDADE_POP1); }
       else  
-      { printf ("Carta 2 tem maior densidade populacional !!! \n"); 
+      { printf ("\n Carta 2 tem maior densidade populacional !!!"); 
         SUPER_POWER2 += (1/DENSIDADE_POP2); }
-      printf ("Densidade Populacional de %s: %.2f habitantes/km².",CIDADE1,DENSIDADE_POP1);
-      printf ("Densidade Populacional de %s: %.2f habitantes/km².",CIDADE2,DENSIDADE_POP2);   
-      break; }
+      printf ("\n Densidade Populacional de %s: %.2f habitantes/km².",CIDADE1,DENSIDADE_POP1);
+      printf ("\n Densidade Populacional de %s: %.2f habitantes/km².",CIDADE2,DENSIDADE_POP2);   
+      break; }    
     default:
-    { printf ("Opção 2 Inválida. Repita a Operação !!");
+    { printf ("\n Opção 2 Inválida. Repita a Operação !!");
       goto menu; } 
-  
+  }
 // DEFININDO A CARTA VENCEDORA 
   printf ("\n Total Score da Carta 1: %.2f.",SUPER_POWER1);
   printf ("\n Total Score da Carta 2: %.2f.",SUPER_POWER2);
@@ -238,5 +239,5 @@ void main()
     if (SUPER_POWER1 < SUPER_POWER2)
       printf (" \n\n CARTA 2 É VENCEDORA !!!");
     else
-      printf (" \n\n OCORREU EMPATE !!!"); }
-}
+      printf (" \n\n OCORREU EMPATE !!!"); 
+}      
