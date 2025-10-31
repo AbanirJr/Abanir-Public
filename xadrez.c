@@ -47,13 +47,13 @@ void main()
                    printf("T");
                else
                    if (L==LIN_R && C==COL_R)
-                       printf("R);
+                       printf("R");
                    else
                        if (L==LIN_B && C==COL_B)
                            printf("B");
                        else
                            if (L==LIN_C && C==COL_C)
-                               printf("C")
+                               printf("C");
                            else        
                                printf("-");
            }   
@@ -65,43 +65,44 @@ void main()
            case ("T" || "t"):
            {   printf ("\n <<< A Torre se Desloca 2 Posições na Direção Horizontal ou Vertical >>> ");
                printf ("\n <<< Faça o Movimento: Cima (E) - Baixo (X) - Esquerda (S) - Direita (D) >>> ");
-               scanf (%c,&T_MOV);
-               switch (T_MOV)
+               scanf ("%c",&T_MOV);
+               switch (T_MOV):
                {
-                   case "E" || "e":
+                   case ("E" || "e"):
                    {   LIN_T -= 2;
                        if (LIN_T < 1)
                           LIN_T = 1;    }
-                   case "X" || "x":
+                   case ("X" || "x"):
                    {   LIN_T += 2;
                        if LIN_T > 8
                           LIN_T = 8;    }
-                   case "D" || "d":
+                   case ("D" || "d"):
                    {   COL_T += 2;
                        if COL_T > 8
                           COL_T = 8;    }    
-                   case "S" || "s":
+                   case ("S" || "s"):
                    {   COL_T -= 2;
                        if COL_T < 1
                           COL_T = 1;    } 
                    default:
                        printf ("\n Movimentação Inválida. Repita a Operação !!"); 
                }
+           }    
            case ("B" || "b"):
            {   printf ("\n <<< O Bispo se Desloca Apenas na Diagonal >>> ");
                printf ("\n <<< Direção Vertical: Cima (E) - Baixo (X) >>> ");
-               scanf (%c,&B_VERT);
+               scanf ("%c",&B_VERT);
                printf ("\n <<< Direção Horizontal: Esquerda (S) - Direita (D) >>> ");
-               scanf (%c,&B_HORIZ);
+               scanf ("%c",&B_HORIZ);
                switch (B_VERT)
                {   
                    case ("E" || "e"):
                    {   LIN_B -= 1;
                        if (LIN_B < 1)
                           LIN_B = 1;    }
-                   case "X" || "x":
+                   case ("X" || "x"):
                    {   LIN_B += 1;
-                       if LIN_B > 8
+                       if (LIN_B > 8)
                           LIN_B = 8;    }
                    default:
                        B_HORIZ = " ";
@@ -110,17 +111,17 @@ void main()
                {   
                    case "D" || "d":
                    {   COL_B += 1;
-                       if COL_B > 8
+                       if (COL_B > 8)
                           COL_B = 8;    }    
                    case "S" || "s":
                    {   COL_B -= 1;
-                       if COL_B < 1
+                       if (COL_B < 1)
                           COL_B = 1;    } 
                    default:
                        printf ("\n Movimentação Inválida. Repita a Operação !!");    
                }          
            }
-           case ("R" || "R"):
+           case ("R" || "r"):
            {   printf ("\n <<< A Rainha se Desloca 3 Posições na Direção Horizontal ou Vertical >>> ");
                printf ("\n <<< Faça o Movimento: Cima (E) - Baixo (X) - Esquerda (S) - Direita (D) >>> ");
                scanf (%c,&R_MOV);
