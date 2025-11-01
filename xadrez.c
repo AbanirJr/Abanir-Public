@@ -9,20 +9,21 @@
 // O BISPO PELA LETRA B
 // O CAVALO PELA LETRA C
 // O TABULEIRO TEM 8 LINHAS E 8 COLUNAS
+// SE DUAS PEÇAS OCUPAREM A MESMA POSIÇÃO A PEÇA QUE ESTAVA ALI É ELIMINADA
 
-#include <stdlib.h>
+#include <stdio.h>
 
 void main()
 {
 
 // DECLARANDO AS VARIÁVEIS
-    char PECA = " ";
-    char T_MOV = " ";
-    char B_VERT = " ";
-    char B_HORIZ = " ";
-    char R_MOV = " ";
-    char C_VERT = " ";
-    char C_HORIZ = " ";
+    char PECA = ' ';
+    char T_MOV = ' ';
+    char B_VERT = ' ';
+    char B_HORIZ = ' ';
+    char R_MOV = ' ';
+    char C_VERT = ' ';
+    char C_HORIZ = ' ';
     int LIN_T = 1;
     int LIN_R = 1;
     int LIN_B = 1;
@@ -35,12 +36,12 @@ void main()
     int L = 0;
 
 // CRIA O MENU INTERATIVO PARA ESCOLHA PELO USUÁRIO DA PEÇA A SER MOVIMENTADA
-   while (PECA != "F" && PECA != "f")
+   while (PECA != 'F' && PECA != 'f')
    {
    // IMPRIMINDO O TABULEIRO COM AS PEÇAS POSICIONADAS
-       system("cls");
        for (L=1;L<=8;L++)
        {    
+           printf("\n");
            for (C=1;C<=8;C++)
            {
                if (L==LIN_T && C==COL_T)
@@ -56,130 +57,168 @@ void main()
                                printf("C");
                            else        
                                printf("-");
-           }   
+           }           
        }
-       printf ("\n\n Escolha a Peça Para Movimentar (B - Bispo | R - Rainha | T - Torre | F - Fim do Jogo) >>> ");
-       scanf ("%c",&PECA);
+       printf ("\n\n Escolha a Peça Para Movimentar (B - Bispo | R - Rainha | T - Torre | C - Cavalo | F - Fim do Jogo) >>> ");
+       scanf (" %c",&PECA);
        switch (PECA)
        {
-           case ("T" || "t"):
+           case 'T':
            {   printf ("\n <<< A Torre se Desloca 2 Posições na Direção Horizontal ou Vertical >>> ");
                printf ("\n <<< Faça o Movimento: Cima (E) - Baixo (X) - Esquerda (S) - Direita (D) >>> ");
-               scanf ("%c",&T_MOV);
-               switch (T_MOV):
+               scanf (" %c",&T_MOV);
+
+               switch (T_MOV)
                {
-                   case ("E" || "e"):
+                   case 'E':
                    {   LIN_T -= 2;
                        if (LIN_T < 1)
-                          LIN_T = 1;    }
-                   case ("X" || "x"):
+                          LIN_T = 1;
+                        break;    }
+                   case 'X':
                    {   LIN_T += 2;
-                       if LIN_T > 8
-                          LIN_T = 8;    }
-                   case ("D" || "d"):
+                       if (LIN_T > 8)
+                          LIN_T = 8;
+                       break;    }
+                   case 'D':
                    {   COL_T += 2;
-                       if COL_T > 8
-                          COL_T = 8;    }    
-                   case ("S" || "s"):
+                       if (COL_T > 8)
+                          COL_T = 8;
+                        break;    }    
+                   case 'S':
                    {   COL_T -= 2;
-                       if COL_T < 1
-                          COL_T = 1;    } 
+                       if (COL_T < 1)
+                          COL_T = 1;
+                        break;    } 
                    default:
-                       printf ("\n Movimentação Inválida. Repita a Operação !!"); 
+                   {    printf ("\n Movimentação da Torre Inválida. Repita a Operação !!");
+                        break;    } 
+               break;
                }
+           break;    
            }    
-           case ("B" || "b"):
+           case 'B':
            {   printf ("\n <<< O Bispo se Desloca Apenas na Diagonal >>> ");
                printf ("\n <<< Direção Vertical: Cima (E) - Baixo (X) >>> ");
-               scanf ("%c",&B_VERT);
+               scanf (" %c",&B_VERT);
                printf ("\n <<< Direção Horizontal: Esquerda (S) - Direita (D) >>> ");
-               scanf ("%c",&B_HORIZ);
+               scanf (" %c",&B_HORIZ);
                switch (B_VERT)
                {   
-                   case ("E" || "e"):
+                   case 'E':
                    {   LIN_B -= 1;
                        if (LIN_B < 1)
-                          LIN_B = 1;    }
-                   case ("X" || "x"):
+                          LIN_B = 1;
+                       break;    }
+                   case 'X':
                    {   LIN_B += 1;
                        if (LIN_B > 8)
-                          LIN_B = 8;    }
+                          LIN_B = 8;
+                       break;     }
                    default:
-                       B_HORIZ = " ";
+                   {    B_HORIZ = ' ';
+                        break;     }     
                }
                switch (B_HORIZ)
                {   
-                   case "D" || "d":
+                   case 'D':
                    {   COL_B += 1;
                        if (COL_B > 8)
-                          COL_B = 8;    }    
-                   case "S" || "s":
+                          COL_B = 8;
+                        break;    }    
+                   case 'S':
                    {   COL_B -= 1;
                        if (COL_B < 1)
-                          COL_B = 1;    } 
+                          COL_B = 1;
+                       break;    } 
                    default:
-                       printf ("\n Movimentação Inválida. Repita a Operação !!");    
-               }          
+                   {    printf ("\n Movimentação Inválida. Repita a Operação !!");    
+                        break;    }
+               break; 
+               }   
+           break;           
            }
-           case ("R" || "r"):
+           case 'R':
            {   printf ("\n <<< A Rainha se Desloca 3 Posições na Direção Horizontal ou Vertical >>> ");
                printf ("\n <<< Faça o Movimento: Cima (E) - Baixo (X) - Esquerda (S) - Direita (D) >>> ");
-               scanf (%c,&R_MOV);
+               scanf (" %c",&R_MOV);
                switch (R_MOV)
                {
-                   case "E" || "e":
+                   case 'E':
                    {   LIN_R -= 3;
                        if (LIN_R < 1)
-                          LIN_R = 1;    }
-                   case "X" || "x":
+                          LIN_R = 1;
+                       break;    }
+                   case 'X':
                    {   LIN_R += 3;
-                       if LIN_R > 8
-                          LIN_R = 8;    }
-                   case "D" || "d":
+                       if (LIN_R > 8)
+                          LIN_R = 8;
+                       break;     }
+                   case 'D':
                    {   COL_R += 3;
-                       if COL_R > 8
-                          COL_R = 8;    }
-                   case "S" || "s":
+                       if (COL_R > 8)
+                          COL_R = 8;
+                       break;     }
+                   case 'S':
                    {   COL_R -= 3;
-                       if COL_R < 1
-                          COL_R = 1;    } 
+                       if (COL_R < 1)
+                          COL_R = 1;
+                       break;     } 
                    default:
-                       printf ("\n Movimentação Inválida. Repita a Operação !!");    
-               }    
+                   {    printf ("\n Movimentação Inválida. Repita a Operação !!");    
+                        break;    }
+               break;         
+               }   
+           break;     
            }
-           case ("C" || "c"):
+           case 'C':
            {   printf ("\n <<< O Cavalo se Desloca 2 Posições Verticais e em Seguida 1 Posição Horizontal >>> ");
                printf ("\n <<< Direção Vertical: Cima (E) - Baixo (X) >>> ");
-               scanf (%c,&C_VERT);
+               scanf (" %c",&C_VERT);
                printf ("\n <<< Direção Horizontal: Esquerda (S) - Direita (D) >>> ");
-               scanf (%c,&C_HORIZ);
+               scanf (" %c",&C_HORIZ);
                switch (C_VERT)
                {   
-                   case ("E" || "e"):
+                   case 'E':
                    {   LIN_C -= 2;
                        if (LIN_C < 1)
-                          LIN_C = 1;    }
-                   case "X" || "x":
+                          LIN_C = 1;
+                       break;     }
+                   case 'X':
                    {   LIN_C += 2;
-                       if LIN_C > 8
-                          LIN_C = 8;    }
+                       if (LIN_C > 8)
+                          LIN_C = 8;
+                       break;     }
                    default:
-                       C_HORIZ = " ";
+                   {
+                       C_HORIZ = ' ';
+                       break;    }    
                }
                switch (C_HORIZ)
                {   
-                   case "D" || "d":
+                   case 'D':
                    {   COL_C += 1;
-                       if COL_C > 8
-                          COL_C = 8;    }    
-                   case "S" || "s":
+                       if (COL_C > 8)
+                          COL_C = 8;
+                       break;     }    
+                   case 'S':
                    {   COL_C -= 1;
-                       if COL_C < 1
-                          COL_C = 1;    } 
+                       if (COL_C < 1)
+                          COL_C = 1;
+                       break;     } 
                    default:
+                   {
                        printf ("\n Movimentação Inválida. Repita a Operação !!");    
-               }          
+                       break;    }
+               break;        
+               }   
+           break;           
            }
+           case 'F':
+           {   printf("\n\n              GAME OVER !!              \n");
+               break;    }
+           default:
+           {   printf ("\n Movimentação Inválida. Repita a Operação !!");    }         
        }
    }
 }
