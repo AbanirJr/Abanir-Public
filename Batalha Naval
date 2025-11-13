@@ -1,0 +1,112 @@
+// CODIFICAÇÃO DO JOGO BATALHA NAVAL DO TEMA 5 
+// CRIEI O JOGO DA FORMA COMO EU BRINCAVA QUANDO CRIANÇA
+// AS POSIÇÕES DOS NAVIOS SÃO PRÉ-DEFINIDAS NA CRIAÇÃO DA MATRIZ DO TABULEIRO
+// O TABULEIRO É MOSTRADO NA TELA SEM OBVIAMENTE MOSTRAR AS POSIÇÕES DOS NAVIOS
+// CADA NAVIO É REPRESENTADO DESTA FORMA "####"
+// NO TOTAL SAO 4 NAVIOS
+// O OBJETIVO É BOMBARDEAR OS NAVIOS PARA NAUFRAGÁ-LOS
+// O JOGADOR POSICIONA O "X" NO ALVO A SER ATINGIDO E PRESSIONA A TECLA "X" PARA CONFIRMAR O ATAQUE
+// SE A POSIÇÃO DO "X" COINCIDIR COM PARTE DE UM NAVIO, É MOSTRADO O SIMBOLO "*"
+// O TABULEIRO TEM 20 LINHAS E 20 COLUNAS
+// O JOGADOR TEM 20 TENTATIVAS PARA DERRUBAR TODOS OS NAVIOS
+// O JOGO TERMINA AO FINALIZAREM AS TENTATIVAS, SE O JOGADOR ATINGIR COMPLETAMENTE TODOS OS NAVIOS OU TECLAR "G"
+
+#include <stdio.h>
+
+void main()
+{
+
+// DECLARANDO AS VARIÁVEIS
+    char POINTER = 'X';
+    int LIN_X = 1;
+    int COL_X = 1;
+    int C = 0;
+    int L = 0;
+    int TENTATIVAS = 1;
+    int ALVOS_ATINGIDOS = 0;
+    TABULEIRO [20] [20] =
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","#","-","-","-","-","-","-"}
+    {"-","-","-","#","-","-","-","-","-","-","-","-","-","-","#","-","-","-","-","-"}
+    {"-","-","-","#","-","-","-","-","-","-","-","-","-","-","-","#","-","-","-","-"}    
+    {"-","-","-","#","-","-","-","-","-","-","-","-","-","-","-","-","#","-","-","-"}
+    {"-","-","-","#","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","X","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","#","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","#","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","#","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","#","-","-","-","-"}
+    {"-","-","-","-","-","-","#","#","#","#","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+    {"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"}
+
+// CRIA O MENU INTERATIVO PARA ESCOLHA PELO USUÁRIO DA OPÇÃO DE JOGO
+   while (TENTATIVAS <= 20 && POINTER != "G" && ALVOS_ATINGIDOS < 16)
+   {
+   // IMPRIMINDO O TABULEIRO
+       for (L=1;L<=20;L++)
+       {    
+           printf("\n");
+           for (C=1;C<=20;C++)
+           {
+               if (L==LIN_X && C==COL_X)
+                   printf("X");
+               else
+                   if TABULEIRO [L][C] = "*"
+                      printf("*");
+                   else
+                       print ("-");   
+           }           
+       }
+       printf ("\n\n <<< Você tem 20 Tentativas para Naufragar os 4 Navios Inimigos. Boa Sorte !!! >>> ");
+       printf ("\n <<< Posicione o Ponteiro X (R - Cima | C - Baixo | F - Direita | D - Esquerda | X - Atirar | G - Game Over)")
+       scanf (" %c",&POINTER);
+       switch (POINTER)
+       {
+           case 'R':
+           {   LIN_X -= 1;
+               if (LIN_X < 1)
+                   LIN_X = 1;
+               break;    }
+           case 'C':
+           {   LIN_X += 1;
+               if (LIN_X > 20)
+                    LIN_X = 20;
+               break;    }
+           case 'F':
+           {   COL_X += 1;
+               if (COL_X > 20)
+                   COL_X = 20;
+               break;    }    
+           case 'D':
+           {   COL_X -= 1;
+               if (COL_X < 1)
+                   COL_X = 1;
+               break;    } 
+           case 'X':
+           {   TENTATIVAS += 1;
+               if TABULEIRO [L] [C] == "#"
+               {
+                    printf ("\n\n <<< Navio Atingido !!! >>>");
+                    TABULEIRO [L] [C] = "*";
+                    ALVOS_ATINGIDOS += 1;   
+               }
+               else
+                   printf ("\n\n <<< A Bomba Afundou e Não Atingiu Nenhum Navio. Restam %i Tentativas !! >>> ", 20 - TENTATIVAS);     
+               break;     }
+           case 'G':           
+           {   printf("\n\n              GAME OVER !!              \n");
+               break;    }
+           default:
+           {    printf ("\n Movimentação Inválida. Repita a Operação !!");
+                break;    } 
+       }
+    }
+}
+
